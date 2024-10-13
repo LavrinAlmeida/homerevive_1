@@ -9,8 +9,9 @@ import CustomerLoginSignup from './components/CustomerLoginSignup';
 import ProviderLoginSignup from './components/ProviderLoginSignup';
 import AddData from './AddData';
 import GetData from './GetData';
-import UserDetails from './components/UserDetails'; // Import UserDetails
-import ProviderDetails from './components/ProviderDetails'; // Import ProviderDetails
+import UserDetails from './components/userDetails'; // Import UserDetails
+import ProviderDetails from './components/providerDetails'; // Import ProviderDetails
+import CustomerDashboard from './components/CustomerDashboard';
 import ServiceProviderDashboard from './components/ServiceProviderDashboard';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/add-data" element={<AddData />} />
         <Route path="/get-data" element={<GetData />} />
         <Route path="/serviceprovider-dashboard" element={<ServiceProviderDashboard />} />
+        <Route path="/customer-dashboard" element={<CustomerDashboard />} />
       </Routes>
     </Router>
   );
