@@ -1,13 +1,14 @@
-// src/components/ServiceProviderDashboard.js
+//src/components/ServiceProviderDashboard.js
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faMoneyBillWave, faComments, faCog } from '@fortawesome/free-solid-svg-icons';
 import './ServiceProviderDashboard.css';
 import homeReviveLogo from '../assets/home-revive-logo.png.webp';
 
 const ServiceProviderDashboard = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+  const [accountHolder, setAccountHolder] = useState(null); // To store account holder details
   const [services, setServices] = useState([]);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [professionals, setProfessionals] = useState([]);
@@ -16,30 +17,33 @@ const ServiceProviderDashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Dummy services
     const dummyServices = [
-      {
-        id: 1,
-        title: 'Earnings',
-        subServices: [],
-      },
-      {
-        id: 2,
-        title: 'Past-Work',
-        subServices: [],
-      },
-      {
-        id: 3,
-        title: 'Upcoming-Work',
-        subServices: [],
-      },
-      {
-        id: 4,
-        title: 'New Request',
-        subServices: [],
-      },
+      { id: 1, title: 'Earnings', subServices: [] },
+      { id: 2, title: 'Past-Work', subServices: [] },
+      { id: 3, title: 'Upcoming-Work', subServices: [] },
+      { id: 4, title: 'New Request', subServices: [] },
     ];
     setServices(dummyServices);
+
+    // Simulate fetching account holder's details
+    const accountHolderDetails = {
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      phone: '123-456-7890',
+    };
+    setAccountHolder(accountHolderDetails);
   }, []);
+
+  const toggleProfileDropdown = () => {
+    setShowDropdown((prev) => !prev);
+  };
+
+  const handleOutsideClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setShowDropdown(false);
+    }
+  };
 
   const handleJobClick = (serviceId) => {
     setSelectedServiceId(serviceId);
@@ -54,21 +58,16 @@ const ServiceProviderDashboard = () => {
     setProfessionals(fetchedProfessionals);
   };
 
-  const toggleProfileDropdown = () => {
-    setShowDropdown((prev) => !prev);
+  const handleViewProfile = () => {
+    setShowProfile(true); // Show account holder's profile
+    setShowDropdown(false); // Close dropdown after clicking
   };
 
-  const handleOutsideClick = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setShowDropdown(false);
-    }
+  const handleEditProfile = () => {
+    navigate('/provider-login-signup'); // Navigate to LoginSignup.js for editing
   };
 
   const handleLogoutClick = () => {
-    // Clear user data (like tokens) here
-    // For example: localStorage.removeItem('token');
-
-    // Redirect to the home screen
     navigate('/');
   };
 
@@ -96,7 +95,7 @@ const ServiceProviderDashboard = () => {
           {showDropdown && (
             <div className="profile-dropdown active" ref={dropdownRef}>
               <ul>
-                <li>View Profile</li>
+                <li onClick={handleViewProfile}>View Profile</li>
                 <li>Account Settings</li>
                 <li onClick={handleLogoutClick}>Logout</li>
               </ul>
@@ -137,6 +136,16 @@ const ServiceProviderDashboard = () => {
       {showFindButton && (
         <div className="View Details">
           <button onClick={handleViewJobDetails} className="View-Details">View Details</button>
+        </div>
+      )}
+
+      {showProfile && accountHolder && (
+        <div className="profile-details">
+          <h3>Account Holder's Profile</h3>
+          <p><strong>Name:</strong> {accountHolder.name}</p>
+          <p><strong>Email:</strong> {accountHolder.email}</p>
+          <p><strong>Phone:</strong> {accountHolder.phone}</p>
+          <button onClick={handleEditProfile} className="edit-button">Edit Profile</button>
         </div>
       )}
     </div>
