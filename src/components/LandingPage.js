@@ -19,14 +19,15 @@ const LandingPage = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Number of images to show at a time
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000, // Time between slides (in milliseconds)
+    autoplaySpeed: 2000,
   };
 
   return (
     <div className="landing-container">
+      {/* Header */}
       <header className="navbar">
         <div className="logo-container">
           <img src={homeReviveLogo} alt="Home Revive Logo" className="logo large" />
@@ -110,15 +111,15 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Footer */}
       <footer>
         <div className="footer-links">
-          <Link to="/FAQsCustomers">FAQs for Customers</Link>
-          <Link to="/FAQsProviders">FAQs for Providers</Link>
-          <Link to="/terms">Terms of Service</Link>
-          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/FAQSCustomers">FAQs for Customers</Link>
+          <Link to="/FAQSProviders">FAQs for Providers</Link>
+          <Link to="/Terms">Terms of Service</Link>
+          <Link to="/Privacy">Privacy Policy</Link>
         </div>
       </footer>
-
     </div>
   );
 };

@@ -49,11 +49,11 @@ const ContactUs = () => {
       </header>
 
       {/* Main Content */}
-      <main className="contact-us-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', maxWidth: '600px', margin: '20px auto' }}>
+      <main className="contact-us-content" style={{ display: 'auto', flexDirection: 'column', alignItems: 'center', padding: '50px', maxWidth: '500px', margin: '20px auto' }}>
         <h2>Contact Us</h2>
         {isSubmitted && <p className="success-message">Thank you for your message!</p>}
         <form onSubmit={handleSubmit} className="contact-form" style={{ width: '100%' }}>
-          <div className="form-group" style={{ marginBottom: '15px' }}>
+          <div className="form-group" style={{ marginBottom: 'auto' }}>
             <label htmlFor="name">Name</label>
             <input
               type="text"
@@ -66,7 +66,7 @@ const ContactUs = () => {
               style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
             />
           </div>
-          <div className="form-group" style={{ marginBottom: '15px' }}>
+          <div className="form-group" style={{ marginBottom: '0.5px' }}>
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -79,7 +79,7 @@ const ContactUs = () => {
               style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
             />
           </div>
-          <div className="form-group" style={{ marginBottom: '15px' }}>
+          <div className="form-group" style={{ marginBottom: '0.5px' }}>
             <label htmlFor="subject">Subject</label>
             <input
               type="text"
@@ -92,7 +92,7 @@ const ContactUs = () => {
               style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
             />
           </div>
-          <div className="form-group" style={{ marginBottom: '15px' }}>
+          <div className="form-group" style={{ marginBottom: '0.5px' }}>
             <label htmlFor="message">Message</label>
             <textarea
               id="message"

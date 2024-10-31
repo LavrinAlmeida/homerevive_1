@@ -25,6 +25,7 @@ import AboutUs from './components/AboutUs';
 import BookingSummary from './components/BookingSummary';
 import AvailableProviders from './components/AvailableProviders';
 import AppointmentConfirmation from './components/AppointmentConfirm';
+import SupportPage from './components/SupportPage';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route path="/booking-summary" element={<BookingSummary />} />
         <Route path="/available-providers" element={<AvailableProviders />} />
         <Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
+        <Route path="/support" element={<SupportPage />} />
 
       </Routes>
     </Router>

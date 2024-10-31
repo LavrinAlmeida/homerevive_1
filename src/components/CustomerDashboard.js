@@ -328,13 +328,16 @@ const CustomerDashboard = () => {
 
   return (
     <div className="customer-dashboard">
-      <header className="header">
+      <header className="navbar">
         <div className="logo-container">
           <img src={homeReviveLogo} alt="Home Revive Logo" className="logo large" />
-          <span className="logo-text">Home Revive</span>
+          <div className="description">
+            <h1>Home Revive</h1>
+            <p>Connecting Local Professionals with Customers for Fast and Reliable Home Repairs</p>
+          </div>
         </div>
         <div className="nav">
-          <div className="nav-item" onClick={() => navigate('/customer-home')}>Home</div>
+          <div className="nav-item" onClick={() => navigate('/customer-dashboard')}>Home</div>
           <div className="nav-item" onClick={() => navigate('/support')}>Support</div>
           <div className="profile" onClick={toggleProfileDropdown}>
             <img src={userProfile} alt="Profile" />
@@ -353,7 +356,7 @@ const CustomerDashboard = () => {
       </header>
 
       {/* Service Selection */}
-      <div className="service-selection-buttons">
+      <div className="service-selection-buttons"  style={{ padding: '80px 20px',  }}>
         <h2>Select a Service</h2>
         <div className="services-buttons">
           {services.map((service) => (
@@ -395,7 +398,8 @@ const CustomerDashboard = () => {
         </div>
       )}
 
-      <footer className="footer">
+           {/* Footer */}
+           <footer>
         <div className="footer-links">
           <Link to="/FAQsCustomers">FAQs for Customers</Link>
           <Link to="/FAQsProviders">FAQs for Providers</Link>

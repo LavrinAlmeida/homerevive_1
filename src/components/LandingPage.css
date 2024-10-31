@@ -1,34 +1,47 @@
-/* src/components/LandingPage.css */
-
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  padding-bottom: 60px; /* Prevents overlap with fixed footer */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  flex: 1; /* Allows main content to expand and fill available space */
+  overflow-y: auto;
 }
 
 .landing-container {
-  padding: 20px;
+  padding: 80px 20px 20px; /* Prevents overlap with fixed navbar */
 }
 
 /* Navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw; /* Full width */
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0B1C3E;
   color: white;
-  padding: 10px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensures it stays above other elements */
+  height: 90px;
 }
 
 .description h1 {
   color: white; /* Ensure the title is white */
-  font-size: 3.0rem;
+  font-size: 2.5rem;
 }
 
 .description p {
   color: white; /* Ensure the paragraph is also white */
 }
-
 
 .logo-container {
   display: flex;
@@ -114,8 +127,17 @@ body {
   margin-bottom: 20px;
 }
 
+.service-slides-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .service-slide {
   text-align: center;
+  margin: 20px;
+  flex: 1 1 calc(30% - 40px);
+  max-width: 350px;
 }
 
 .service-slide img {
@@ -123,6 +145,7 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .service-slide h4 {
@@ -140,17 +163,17 @@ body {
 .how-it-works {
   margin: 50px 0;
   text-align: center;
-  background-color: #e0e0e0; /* Darker background color */
-  padding: 40px; /* Add some padding around the content */
-  border-radius: 10px; /* Keep the rounded corners */
-  min-height: 300px; /* Ensure the container is displayed with a minimum height */
+  background-color: #e0e0e0;
+  padding: 40px;
+  border-radius: 10px;
+  min-height: 300px;
 }
 
 .how-it-works .steps {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
-  position: relative; /* Position for line separation */
+  position: relative;
 }
 
 .how-it-works .steps::before {
@@ -160,20 +183,19 @@ body {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background-color: #ccc; /* Faint line color */
+  background-color: #ccc;
 }
 
 .step {
   padding: 20px;
   flex: 1;
   margin: 0 15px;
-  text-align: center; /* Centered content */
+  text-align: center;
 }
 
 .step ol {
   text-align: left;
 }
-
 
 /* Featured Services */
 .featured-services {
@@ -224,90 +246,51 @@ body {
 }
 
 .testimonials {
-  padding: 2rem 1rem; /* Padding for the testimonials section */
-  background-color: #f9f9f9; /* Light background color for contrast */
-  text-align: center; /* Center text for better presentation */
-  border-radius: 8px; /* Rounded corners for a softer look */
-  margin: 2rem 0; /* Margin to separate from other sections */
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-radius: 8px;
+  margin: 2rem 0;
 }
 
 .testimonials h3 {
-  font-size: 2rem; /* Larger font size for the section title */
-  margin-bottom: 1rem; /* Space below the title */
-  color: #333; /* Darker color for visibility */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 .testimonial {
-  background-color: #fff; /* White background for each testimonial */
-  padding: 1.5rem; /* Padding for the testimonial box */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin: 1rem 0; /* Margin to separate testimonials */
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
 }
 
 .testimonial h4 {
-  font-size: 1.5rem; /* Slightly smaller title for testimonials */
-  margin-bottom: 0.5rem; /* Space below the title */
-  color: #0B1C3E; /* Color for the subtitle */
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #0B1C3E;
 }
 
 .testimonial p {
-  font-size: 1rem; /* Font size for testimonial text */
-  color: #555; /* Gray color for the text */
-  line-height: 1.5; /* Better line spacing for readability */
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
 }
 
 /* Responsive Design */
 @media (min-width: 768px) {
   .testimonials {
-    display: flex; /* Use flexbox for larger screens */
-    justify-content: space-around; /* Space out testimonials evenly */
-    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   .testimonial {
-    flex: 1 1 300px; /* Flex properties to allow resizing */
-    margin: 1rem; /* Margin for separation */
+    flex: 1 1 300px;
+    margin: 1rem;
   }
-}
-
-
-/* Service Slider Section */
-.service-slider {
-  margin: 40px 0;
-}
-
-.service-slider h3 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.service-slides-container {
-  display: flex;               /* Use flexbox for layout */
-  flex-wrap: wrap;            /* Allow items to wrap */
-  justify-content: center;     /* Center the slides */
-}
-
-.service-slide {
-  text-align: center;
-  margin: 20px;              /* Space around each slide */
-  flex: 1 1 calc(30% - 40px); /* Responsive width, allows 3 slides per row */
-  max-width: 350px;          /* Optional: Limit the maximum width of each slide */
-}
-
-/* Adjust image styling */
-.service-slide img {
-  width: 100%;
-  height: 200px;             /* Fixed height for all images */
-  object-fit: cover;         /* Maintain aspect ratio */
-  border-radius: 10px;       /* Rounded corners */
-  margin-bottom: 10px;       /* Space below each image */
-}
-
-.service-slide h4 {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #333;
 }
 
 /* Search Bar */
@@ -325,11 +308,16 @@ body {
 
 /* Footer */
 footer {
-  margin-top: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
   text-align: center;
   background-color: #0B1C3E;
   color: white;
   padding: 20px;
+  z-index: 1000;
 }
 
 .footer-links {
