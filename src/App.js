@@ -9,23 +9,8 @@ import CustomerLoginSignup from './components/CustomerLoginSignup';
 import ProviderLoginSignup from './components/ProviderLoginSignup';
 import AddData from './AddData';
 import GetData from './GetData';
-import UserDetails from './components/UserDetails'; 
-import ProviderDetails from './components/ProviderDetails'; 
-import CustomerHomePage from './components/CustomerHomePage';
-import CustomerDashboard from './components/CustomerDashboard';
-import BookProfessional from './components/BookProfessional';
-import ProvidersList from './components/ProvidersList'; // Import the new component
-import ServiceProviderDashboard from './components/ServiceProviderDashboard';
-import FAQsCustomers from './components/FAQsCustomers';
-import FAQsProviders from './components/FAQsProviders';
-import TermsOfService from './components/TermsOfService';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import ContactUs from './components/ContactUs';
-import AboutUs from './components/AboutUs';
-import BookingSummary from './components/BookingSummary';
-import AvailableProviders from './components/AvailableProviders';
-import AppointmentConfirmation from './components/AppointmentConfirm';
-import SupportPage from './components/SupportPage';
+import UserDetails from './components/UserDetails'; // Import UserDetails
+import ProviderDetails from './components/ProviderDetails'; // Import ProviderDetails
 
 function App() {
   return (
@@ -39,22 +24,6 @@ function App() {
         <Route path="/provider/:providerId" element={<ProviderDetails />} />
         <Route path="/add-data" element={<AddData />} />
         <Route path="/get-data" element={<GetData />} />
-        <Route path="/customer-home" element={<CustomerHomePage />} />
-        <Route path="/customer-dashboard" element={<CustomerDashboard />} />
-        <Route path="/book-professional" element={<BookProfessional />} />
-        <Route path="/providers-list" element={<ProvidersList />} /> {/* New route for ProvidersList */}
-        <Route path="/serviceprovider-dashboard" element={<ServiceProviderDashboard />} />
-        <Route path="/FAQsCustomers" element={<FAQsCustomers />} />
-        <Route path="/FAQsProviders" element={<FAQsProviders />} />
-        <Route path="/Terms" element={<TermsOfService />} />
-        <Route path="/Privacy" element={<PrivacyPolicy />} />
-        <Route path="/Contact" element={<ContactUs />} />
-        <Route path="/About" element={<AboutUs />} />
-        <Route path="/booking-summary" element={<BookingSummary />} />
-        <Route path="/available-providers" element={<AvailableProviders />} />
-        <Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
-        <Route path="/support" element={<SupportPage />} />
-
       </Routes>
     </Router>
   );
